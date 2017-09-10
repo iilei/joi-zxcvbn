@@ -23,7 +23,7 @@ var Joi = PlainJoi.extend(joiZxcvbn(PlainJoi));
 var minimumScore = 3; // default - must in 0...4
 var userInputs = ['janedoe', 'jane@doe.com']; // optional & best practice
 
-Joi.zxcvbn(minimumScore, userInputs).validate('👍🐴🔋❤️', function (err) {
+Joi.string().zxcvbn(minimumScore, userInputs).validate('👍🐴🔋❤️', function (err) {
   console.log(err ? 'Invalid' : 'Valid')
 })
 
