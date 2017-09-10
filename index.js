@@ -1,34 +1,35 @@
-const Joi = require('joi');
+const joi = require('joi');
 const zxcvbn = require('zxcvbn');
 
-const joiZxcvbn = joi => ({
+const DEFAULT_MIN_SCORE = 3;
+
+const joiZxcvbn = () => ({
   base: joi.string(),
   name: 'string',
   language: {
-    zxcvbn: {
-      base: 'Password strength score {{!score}} does not suffice the minimum of {{!min}}',
-    },
+    zxcvbn: 'Password strength score {{!score}} does not suffice the minimum of {{!min}}',
   },
   rules: [
     {
       name: 'zxcvbn',
       params: {
-        _minScore: Joi.number().integer().min(0).max(4),
-        _userInputs: Joi.array(),
+        _minScore: joi.number().integer().min(0).max(4),
+        _userInput: joi.array(),
       },
 
       validate(params, value, state, options) {
-        const min = params._minScore || 0;
-        const userInputs = params._userInputs;
-        const result = zxcvbn(value, userInputs);
-        const { score } = result;
+        const min = (typeof params._minScore === 'number') ? params._minScore : DEFAULT_MIN_SCORE;
+        const result = zxcvbn(value || '', params._userInput);
+        const { score, feedback, calc_time } = result;
 
         if (score >= min) {
           return value;
         }
 
-        return this.createError('string.zxcvbn.base', {
+        return this.createError('string.zxcvbn', {
           score,
+          calc_time,
+          feedback,
           min,
         }, state, options);
       },
