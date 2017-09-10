@@ -22,11 +22,7 @@ var Joi = PlainJoi.extend(joiZxcvbn(PlainJoi));
 var minimumScore = 3; // default - must in 0...4
 var userInputs = ['janedoe', 'jane@doe.com']; // optional & best practice
 
-<<<<<<< Updated upstream
-Joi.string().zxcvbn(minimumScore, userInputs).validate('👍🐴🔋❤️', function (err) {
-=======
 Joi.string().min(4).zxcvbn(minimumScore, userInputs).validate('👍🐴🔋❤️', function (err) {
->>>>>>> Stashed changes
   console.log(err ? 'Invalid' : 'Valid')
 })
 
