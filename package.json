@@ -1,8 +1,8 @@
 {
   "name": "joi-zxcvbn",
-  "version": "3.0.3",
+  "version": "4.0.0",
   "description": "Validate Password complexity with Joi and zxcvbn",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "istanbul cover tape test.js",
     "lint": "eslint .",

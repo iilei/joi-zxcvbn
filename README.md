@@ -1,3 +1,5 @@
+[![NSP Status](https://nodesecurity.io/orgs/iilei/projects/2ec8c65b-dbcb-4254-b96d-dc0f56fcee21/badge)](https://nodesecurity.io/orgs/iilei/projects/2ec8c65b-dbcb-4254-b96d-dc0f56fcee21)
+
 # joi-zxcvbn password strength check
 
 Validate Password complexity with Joi and zxcvbn
