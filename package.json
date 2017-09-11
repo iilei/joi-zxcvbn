@@ -62,8 +62,6 @@
   },
   "homepage": "https://github.com/iilei/joi-zxcvbn#readme",
   "dependencies": {
-    "babel-register": "^6.26.0",
-    "emoji-regex": "^6.5.1",
     "zxcvbn": "^4.4.2"
   }
 }

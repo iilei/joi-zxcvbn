@@ -1,4 +1,6 @@
 [![NSP Status](https://nodesecurity.io/orgs/iilei/projects/2ec8c65b-dbcb-4254-b96d-dc0f56fcee21/badge)](https://nodesecurity.io/orgs/iilei/projects/2ec8c65b-dbcb-4254-b96d-dc0f56fcee21)
+[![bitHound Code](https://www.bithound.io/github/iilei/joi-zxcvbn/badges/code.svg)](https://www.bithound.io/github/iilei/joi-zxcvbn)
+[![Build Status](https://travis-ci.org/iilei/joi-zxcvbn.svg?branch=master)](https://travis-ci.org/iilei/joi-zxcvbn)
 
 # joi-zxcvbn password strength check
 
