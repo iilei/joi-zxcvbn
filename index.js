@@ -1,9 +1,8 @@
-const joi = require('joi');
 const zxcvbn = require('zxcvbn');
 
 const DEFAULT_MIN_SCORE = 3;
 
-const joiZxcvbn = () => ({
+const joiZxcvbn = (joi) => ({
   base: joi.string(),
   name: 'string',
   language: {
