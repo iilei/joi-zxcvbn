@@ -33,6 +33,6 @@ Joi.string().min(4).zxcvbn(minimumScore, userInputs).validate('👍🐴🔋❤�
 ```
 
 Have a look at the `tests.js` to see how to parse its results. `feedback, score, calc_time` are
-passed trough.
+passed trough. `calc_time` is renamed to `calcTime` just because.
 
 For configuration options, see [dropbox/zxcvbn](https://github.com/dropbox/zxcvbn#usage)

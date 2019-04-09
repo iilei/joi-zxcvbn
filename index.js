@@ -2,7 +2,23 @@ const zxcvbn = require('zxcvbn');
 
 const DEFAULT_MIN_SCORE = 3;
 
-const joiZxcvbn = (joi) => ({
+/**
+ * @typedef JoiInstance
+ * @external "Joi"
+ * @see {@link https://github.com/hapijs/joi/blob/v15.0.0/API.md#joi}
+ */
+
+/**
+ * @typedef JoiExtension
+ * @external "Extension"
+ * @see {@link https://github.com/hapijs/joi/blob/v15.0.0/API.md#extension}
+ */
+
+/**
+ * @param {JoiInstance} joi
+ * @returns {JoiExtension}
+ */
+const joiZxcvbn = joi => ({
   base: joi.string(),
   name: 'string',
   language: {
@@ -19,7 +35,7 @@ const joiZxcvbn = (joi) => ({
       validate(params, value, state, options) {
         const min = (typeof params._minScore === 'number') ? params._minScore : DEFAULT_MIN_SCORE;
         const result = zxcvbn(value || '', params._userInput);
-        const { score, feedback, calc_time } = result;
+        const { score, feedback, calc_time: calcTime } = result;
 
         if (score >= min) {
           return value;
@@ -27,7 +43,7 @@ const joiZxcvbn = (joi) => ({
 
         return this.createError('string.zxcvbn', {
           score,
-          calc_time,
+          calcTime,
           feedback,
           min,
         }, state, options);

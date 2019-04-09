@@ -4,3 +4,6 @@
 .eslintignore
 .eslintrc.yaml
 .idea
+CHANGELOG.md
+.travis.yml
+README.md

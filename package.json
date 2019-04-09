@@ -10,10 +10,9 @@
     "build:dist": "babel -s true index.js -d dist",
     "serve:dist": "nodemon dist/index.js",
     "clean": "rimraf coverage/ dist/",
-    "scan:security": "nsp check",
     "setenv:dev": "npm config set production false",
     "setenv:prod": "npm config set production true",
-    "prerelease": "npm run lint && npm run scan:security && npm run test && npm run clean && npm run setenv:prod && npm run build:dist",
+    "prerelease": "npm run lint && npm run test && npm run clean && npm run setenv:prod && npm run build:dist",
     "release": "standard-version",
     "postrelease": "git push --follow-tags origin master && npm publish && npm run setenv:dev"
   },
@@ -32,26 +31,23 @@
   "author": "Jochen Preusche (Iilei)",
   "license": "MIT",
   "peerDependencies": {
-    "joi": "^10"
+    "joi": "^14.3.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "^7.2.3",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-airbnb": "^2.4.0",
-    "babel-preset-es2015-node6": "^0.4.0",
-    "babel-preset-stage-0": "^6.24.1",
-    "eslint": "^4.6.1",
-    "eslint-config-airbnb-base": "^12.0.0",
-    "eslint-plugin-import": "^2.7.0",
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "babel-eslint": "^11.0.0-beta.0",
+    "babel-preset-airbnb": "^3.2.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
     "istanbul": "^0.4.5",
-    "joi": "^9.0.4",
-    "nsp": "^2.8.0",
-    "proxyquire": "^1.8.0",
-    "rimraf": "^2.6.1",
-    "sinon": "^3.2.1",
-    "standard-version": "^4.2.0",
-    "tape": "^4.6.0"
+    "joi": "^14.3.1",
+    "proxyquire": "^2.1.0",
+    "rimraf": "^2.6.3",
+    "sinon": "^7.3.1",
+    "standard-version": "^5.0.2",
+    "tape": "^4.10.1"
   },
   "repository": {
     "type": "git",

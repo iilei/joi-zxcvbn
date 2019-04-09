@@ -1,5 +1,5 @@
 const test = require('tape');
-const proxyquire = require('proxyquire');
+const proxyquire = require('proxyquire').noCallThru();
 const sinon = require('sinon');
 
 let Joi = require('joi');
@@ -17,9 +17,10 @@ zxcvbnSpy.withArgs('pass-scores-4').returns({ score: 4 });
 
 zxcvbnSpy.withArgs('gimme-feedback').returns({ score: 3, calc_time: 5, feedback: { suggestions: ['something'] } });
 
-const joiZxcvbn = proxyquire('./', {
+const joiZxcvbn = proxyquire('./index', {
   zxcvbn: zxcvbnSpy,
 });
+
 
 Joi = Joi.extend(joiZxcvbn(Joi));
 
@@ -84,7 +85,7 @@ test('Should pass feedback, score and calc_time', (t) => {
   t.ok(result.error);
   t.ok(details.message.indexOf('Password strength score 3 does not suffice the minimum of 4'));
   t.equal(details.context.score, 3);
-  t.equal(details.context.calc_time, 5);
+  t.equal(details.context.calcTime, 5);
   t.equal(details.context.feedback.suggestions[0], 'something');
 
   t.end();
