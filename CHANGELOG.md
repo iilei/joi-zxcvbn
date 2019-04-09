@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0"></a>
+# [5.0.0](https://github.com/iilei/joi-zxcvbn/compare/v4.0.0...v5.0.0) (2019-04-09)
+
 <a name="4.0.0"></a>
 # [4.0.0](https://github.com/iilei/joi-zxcvbn/compare/v3.0.3...v4.0.0) (2017-09-11)
 
