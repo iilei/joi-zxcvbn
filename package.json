@@ -1,6 +1,6 @@
 {
   "name": "joi-zxcvbn",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Validate Password complexity with Joi and zxcvbn",
   "main": "dist/index.js",
   "scripts": {
