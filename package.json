@@ -12,9 +12,8 @@
     "clean": "rimraf coverage/ dist/",
     "setenv:dev": "npm config set production false",
     "setenv:prod": "npm config set production true",
-    "prerelease": "npm run lint && npm run test && npm run clean && npm run setenv:prod && npm run build:dist",
-    "release": "standard-version",
-    "postrelease": "git push --follow-tags origin master && npm publish && npm run setenv:dev"
+    "preversion": "npm run lint && npm run test && npm run clean && npm run setenv:prod && npm run build:dist",
+    "postversion": "git push --follow-tags origin master && npm publish && npm run setenv:dev"
   },
   "keywords": [
     "password",
@@ -45,7 +44,6 @@
     "proxyquire": "^2.1.1",
     "rimraf": "^2.6.3",
     "sinon": "^7.3.2",
-    "standard-version": "^6.0.1",
     "tape": "^4.11.0"
   },
   "repository": {
